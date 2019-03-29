@@ -7,6 +7,12 @@ public class MyLinkedList{
     start = null;
     end = null;
   }
+  
+  public void clear(){
+    size = 0;
+    start = null;
+    end = null;
+  }
 
   public int size() { // returns size of LinkedList
     return size;

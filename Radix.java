@@ -8,12 +8,15 @@ public class Radix{
     while(count != 0){
       fillBucket(data,bucket,place);
       place++;
+      count--;
     }
     takeWater(data,bucket);
   }
 
   public static void takeWater(int[] data, MyLinkedList[] bucket){
-    
+    for(int i = 0; i < bucket[0].size()){
+      data[i] = bucket[0].get(i);
+    }
   }
 
   public static String toString(){

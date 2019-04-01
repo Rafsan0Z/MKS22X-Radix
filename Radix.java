@@ -9,6 +9,11 @@ public class Radix{
       fillBucket(data,bucket,place);
       place++;
     }
+    takeWater(data,bucket);
+  }
+
+  public static void takeWater(int[] data, MyLinkedList[] bucket){
+    
   }
 
   public static String toString(){

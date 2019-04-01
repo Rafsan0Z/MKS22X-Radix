@@ -11,6 +11,14 @@ public class Radix{
     }
   }
 
+  public static String toString(){
+    String result = "";
+  }
+
+  public static String toStringBucket(){
+    String result = "";
+  }
+
   private static void craftBucket(MyLinkedList[] bucket){
     for(int i = 0; i < 10; i++){
       bucket[i] = new MyLinkedList();
@@ -20,6 +28,7 @@ public class Radix{
   private static void fillBucket(int[] data, MyLinkedList[] bucket, int place){
     for(int i = 0; i < data.length; i++){
       int digit = getDigit(data,i,place);
+      bucket[digit].add(data[i]);
     }
   }
 

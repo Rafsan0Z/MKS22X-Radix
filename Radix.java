@@ -2,11 +2,18 @@ public class Radix{
 
   public static void radixsort(int[] data){
     MyLinkedList[] bucket = new MyLinkedList[10];
+    craftBucket(bucket);
     int count = biggest(data);
     int place = 0;
     while(count != 0){
       fillBucket(data,bucket,place);
       place++;
+    }
+  }
+
+  private static void craftBucket(MyLinkedList[] bucket){
+    for(int i = 0; i < 10; i++){
+      bucket[i] = new MyLinkedList();
     }
   }
 

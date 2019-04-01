@@ -7,7 +7,7 @@ public class MyLinkedList{
     start = null;
     end = null;
   }
-  
+
   public void clear(){
     size = 0;
     start = null;
@@ -32,6 +32,18 @@ public class MyLinkedList{
     return true;
   }
 
+  public boolean contains(Integer value){
+    Node temp = start;
+    int i = 0;
+    while(temp.next() != null){
+      temp = temp.next();
+      if(temp.getData() == value){
+        return true;
+      }
+    }
+    return false;
+  }
+
   public String toString(){ // turns the LinkedList into a String to be printed!
     String result = "[";
     Node temp = start;
@@ -54,7 +66,7 @@ public class MyLinkedList{
     }
     return temp.getData();
   }
- 
+
   public int indexOf(Integer value){
     Node temp = start;
     int i = 0;
@@ -142,7 +154,7 @@ public class MyLinkedList{
       extension.start.setPrev(end);
     }
     size += len2;
-    extension.size() = 0;
+    //extension.size() = 0;
     extension.end = null;
     extension.start = null;
   }

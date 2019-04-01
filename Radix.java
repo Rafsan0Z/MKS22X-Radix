@@ -1,8 +1,15 @@
 public class Radix{
 
   public static void radixsort(int[] data){
-    MyLinkedList[] bucket = new MyLinkedList[data.length];
+    MyLinkedList[] bucket = new MyLinkedList[10];
     int count = biggest(data);
+    while(count != 0){
+      fillBucket();
+    }
+  }
+
+  private static void fillBucket(){
+    
   }
 
   private static int biggest(int[] data){

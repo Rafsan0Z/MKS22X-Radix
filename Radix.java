@@ -28,8 +28,13 @@ public class Radix{
   private static void fillBucket(int[] data, MyLinkedList[] bucket, int place){
     for(int i = 0; i < data.length; i++){
       int digit = getDigit(data,i,place);
+      if(data[i] >= 0){
       bucket[digit].add(data[i]);
     }
+    else{
+      bucket[digit].add(0,data[i]);
+    }
+  }
   }
 
   private static int biggest(int[] data){

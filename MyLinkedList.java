@@ -48,20 +48,21 @@ public class MyLinkedList{
     String result = "[";
     Node temp = start;
     while(temp != null){
-      if(temp.next() != null) {result += temp.toString() + ",";}
+      if(temp.next() != null) {result += temp.getData() + ", ";}
+      else{result += temp.getData();}
       temp = temp.next();
     }
     return result + "]";
 }
 
   public int get(int index){
-    Node temp = start;
-    int i = 0;
-    if(index < 0 || index > size){
+    if(index < 0 || index >= size){
       throw new IndexOutOfBoundsException("Incorrect Index!");
     }
-    while(i != index){
-      temp.next();
+    Node temp = start;
+    int i = 0;
+    while(i < index){
+      temp = temp.next();
       i++;
     }
     return temp.getData();
@@ -81,7 +82,7 @@ public class MyLinkedList{
   }
 
   public void add(int index, Integer value){
-    if(index < 0 || index > size){
+    if(index < 0 || index >= size){
       throw new IndexOutOfBoundsException("Incorrect Index!");
     }
     Node now = getNode(index);
@@ -106,36 +107,10 @@ public class MyLinkedList{
   }
 
   public Integer remove(int index){
-    if(index < 0 || index > size){
+    if(index < 0 || index >= size){
       throw new IndexOutOfBoundsException("Incorrect Index!");
     }
-    Node temp = start; // create temporary Node
-    Integer result = 0; // set result to 0
-    if(index == 0){
-      result = start.getData();
-      start = start.next();
-      return result;
-    }
-    int i = 0;
-    while(i != index){
-      temp = temp.next(); // while loop to get Node at index
-      i++;
-    }
-    if(end != temp){
-      Node previous = temp.prev();
-      Node following = temp.next();
-      previous.setNext(following);  // if temporary Node and end Node are differet, make create the previous and following Node and join them
-      following.setPrev(previous);
-      result = temp.getData();
-    }
-    else{
-      Node previous = temp.prev();
-      previous.setNext(null);
-      end = previous;
-      result = temp.getData();
-    }
-    size--;
-    return result;
+    
   }
 
   public boolean remove(Integer value){
@@ -166,7 +141,8 @@ public class MyLinkedList{
     String result = "[";
     Node temp = end;
     while(temp != null){
-      if(temp.prev() != null) {result += temp.toString() + ",";}
+      if(temp.prev() != null) {result += temp.getData() + ", ";}
+      else{result += temp.getData();}
       temp = temp.prev();
     }
     return result + "]";

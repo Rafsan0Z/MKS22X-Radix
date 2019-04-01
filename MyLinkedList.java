@@ -110,7 +110,43 @@ public class MyLinkedList{
     if(index < 0 || index >= size){
       throw new IndexOutOfBoundsException("Incorrect Index!");
     }
-    
+    Node erase;
+    if(size == 1){
+      erase = getNode(0);
+      clear();
+    }
+    else if(size == 0){return null;}
+    else if(index == size - 1){
+      erase = end;
+      Process(end,erase);
+    }
+    else if(index == 0){
+      erase = start;
+      process(start,erase);
+    }
+    else{
+      Node N = getNode(index+1);
+      Node B = getNode(index-1);
+      erase = getNode(index);
+      B.setNext(N);
+      N.setPrev(B);
+      erase.setPrev(null);
+      erase.setNext(null);
+    }
+    size--;
+    return erase.getData();
+  }
+
+  private void process(Node limit, Node remove){
+    limit = limit.next();
+    remove.setNext(null);
+    limit.setPrev(null);
+  }
+
+  private void Process(Node limit, Node remove){
+    limit = limit.prev();
+    remove.setPrev(null);
+    limit.setNext(null);
   }
 
   public boolean remove(Integer value){

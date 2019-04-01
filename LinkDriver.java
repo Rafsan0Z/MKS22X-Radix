@@ -319,15 +319,6 @@ public class LinkDriver {
           System.out.println(" INDEX_EXCEPTION: given index exceeds bounds");
         }
         
-        System.out.print("// ");
-        if(test_case.toString().equals("[0, 1, 2, 3, -9, 5]")) {
-          System.out.println("PASS");
-        } else {
-          System.out.println("FAIL");
-        }
-        System.out.println("  expected: [0, 1, 2, 3, -9, 5]");
-        System.out.println("  actual:   " + test_case);
-
         System.out.println("\n[.]+[ENTER] to test remove(int index)");
         cont = sc.next();
 

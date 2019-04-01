@@ -3,13 +3,17 @@ public class Radix{
   public static void radixsort(int[] data){
     MyLinkedList[] bucket = new MyLinkedList[10];
     int count = biggest(data);
+    int place = 0;
     while(count != 0){
-      fillBucket();
+      fillBucket(data,bucket,place);
+      place++;
     }
   }
 
-  private static void fillBucket(){
-    
+  private static void fillBucket(int[] data, MyLinkedList[] bucket, int place){
+    for(int i = 0; i < data.length; i++){
+      int digit = getDigit(data,i,place);
+    }
   }
 
   private static int biggest(int[] data){

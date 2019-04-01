@@ -7,6 +7,7 @@ public class Radix{
     int place = 0;
     while(count != 0){
       fillBucket(data,bucket,place);
+      takeWater(data,bucket);
       place++;
       count--;
     }
@@ -17,6 +18,7 @@ public class Radix{
     for(int i = 0; i < bucket[0].size()){
       data[i] = bucket[0].get(i);
     }
+    craftBucket(bucket);
   }
 
   public static String toString(){
@@ -43,6 +45,11 @@ public class Radix{
       bucket[digit].add(0,data[i]);
     }
   }
+    for(int i = 1; i < 10; i++){
+      for(int j = 0; j < bucket[i].size(); j++){
+        bucket[0].add(bucket[i].get(j));
+      }
+    }
   }
 
   private static int biggest(int[] data){

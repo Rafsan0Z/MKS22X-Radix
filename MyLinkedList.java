@@ -90,7 +90,7 @@ public class MyLinkedList{
     }
     else {
       Node temp = start;
-      for(int i = 0; i < index; i++){
+      for(int i = 0; i <= index; i++){
         temp = temp.next();
       }
       Node addend = new Node(null,null,value);
@@ -167,5 +167,11 @@ public class MyLinkedList{
       temp = temp.prev();
     }
     return result + "]";
+  }
+
+  public static void main(String args[]){
+    MyLinkedList test = new MyLinkedList();
+    test.add(1);
+    System.out.println(test);
   }
 }

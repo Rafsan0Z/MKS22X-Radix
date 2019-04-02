@@ -30,10 +30,10 @@ public class Radix{
 
   public static void takeWater(int[] data, MyLinkedList[] bucket){
     System.out.println(bucket[0].size() + " " + data.length);
-    for(int i = 0; i < bucket[0].size() - 1; i++){
+    for(int i = 0; i < bucket[0].size(); i++){
       data[i] = bucket[0].get(i);
     }
-    craftBucket(bucket);
+    clearBucket(bucket);
   }
 
   private static void concentrate(MyLinkedList[] bucket){
@@ -69,6 +69,12 @@ public class Radix{
   private static void craftBucket(MyLinkedList[] bucket){
     for(int i = 0; i < 10; i++){
       bucket[i] = new MyLinkedList();
+    }
+  }
+
+  private static void clearBucket(MyLinkedList[] bucket){
+    for(int i = 0; i < 10; i++){
+      bucket[i].clear();
     }
   }
 

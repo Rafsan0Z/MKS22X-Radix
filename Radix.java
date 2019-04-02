@@ -62,6 +62,7 @@ public class Radix{
   private static void fillBucket(int[] data, MyLinkedList[] bucket, int place){
     for(int i = 0; i < data.length; i++){
       int digit = Math.abs(getDigit(data,i,place));
+      System.out.println(" " + digit);
       if(data[i] >= 0){
       bucket[digit].add(data[i]);
     }
@@ -69,11 +70,6 @@ public class Radix{
       bucket[digit].add(0,data[i]);
     }
   }
-    /*for(int i = 1; i < 10; i++){
-      for(int j = 0; j < bucket[i].size(); j++){
-        bucket[0].add(bucket[i].get(j));
-      }
-    }*/
   }
 
   private static int biggest(int[] data){
@@ -102,9 +98,7 @@ public class Radix{
   public static void main(String args[]){
     int[] test = new int[]{10,11,12,13,14,15,16,17,18,19,20,32,54,65,23,45,76,87,23,98,12,47,-61,29,80,44};
     MyLinkedList[] bucket = new MyLinkedList[10];
-    craftBucket(bucket);
-    fillBucket(test,bucket,0);
-    concentrate(bucket);
+    radixsort(test);
     System.out.println(toStringBucket(bucket));
   }
 

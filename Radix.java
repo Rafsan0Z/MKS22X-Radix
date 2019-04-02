@@ -1,3 +1,4 @@
+import java.util.*;
 public class Radix{
 
   public static void radixsort(int[] data){
@@ -21,10 +22,6 @@ public class Radix{
     craftBucket(bucket);
   }
 
-  public static String toString(){
-    String result = "";
-  }
-
   public static String toStringBucket(int[] data, MyLinkedList[] bucket){
     String result = "";
     int max = 0;
@@ -32,7 +29,7 @@ public class Radix{
         int count = bucket[i].size();
         if(count > max){max = count;}
     }
-    for(int i = 0; i < count; i++){
+    for(int i = 0; i < max; i++){
       for(int j = 0; j < 10; j++){
         try{
         result += bucket[j].get(i) + "  ";
@@ -92,7 +89,7 @@ public class Radix{
   }
 
   public static void main(String args[]){
-    int[] test = new int[]{2,1,-1,-2};
+    int[] test = new int[]{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
   }
 
 }

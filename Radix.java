@@ -10,6 +10,7 @@ public class Radix{
       fillBucket(data,bucket,place);
       concentrate(bucket);
       takeWater(data,bucket);
+      System.out.println(printArray(data));
       place++;
       count--;
     }

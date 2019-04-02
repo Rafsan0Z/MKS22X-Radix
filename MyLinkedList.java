@@ -110,6 +110,22 @@ public class MyLinkedList{
     if(index < 0 || index >= size){
       throw new IndexOutOfBoundsException("Incorrect Index!");
     }
+    size--;
+  }
+
+  public Integer removeFront(){
+    Node index = start;
+    if(size == 1){
+      int result = index.getData();
+      clear();
+      return result;
+    }
+    Node pivot = start.next();
+    start = pivot;
+    pivot.setPrev(null);
+    index.setNext(null);
+    size--;
+    return index.getData();
   }
 
   public boolean remove(Integer value){

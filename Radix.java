@@ -8,13 +8,11 @@ public class Radix{
     int place = 0;
     while(count != 0){
       fillBucket(data,bucket,place);
-      System.out.println(count);
       takeWater(data,bucket);
       place++;
       count--;
     }
     lastfill(data,bucket);
-    System.out.println(toStringBucket(bucket));
     lastBucket(data,bucket);
   }
 

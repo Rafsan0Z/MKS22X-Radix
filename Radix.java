@@ -15,7 +15,7 @@ public class Radix{
   }
 
   public static void takeWater(int[] data, MyLinkedList[] bucket){
-    for(int i = 0; i < bucket[0].size()){
+    for(int i = 0; i < bucket[0].size(); i++){
       data[i] = bucket[0].get(i);
     }
     craftBucket(bucket);
@@ -25,8 +25,24 @@ public class Radix{
     String result = "";
   }
 
-  public static String toStringBucket(){
+  public static String toStringBucket(int[] data, MyLinkedList[] bucket){
     String result = "";
+    int max = 0;
+    for(int i = 0; i < 10; i++){
+        int count = bucket[i].size();
+        if(count > max){max = count;}
+    }
+    for(int i = 0; i < count; i++){
+      for(int j = 0; j < 10; j++){
+        try{
+        result += bucket[j].get(i) + "  ";
+      }catch(NoSuchElementException e){
+        result += "__  ";
+      }
+      }
+      result += "\n";
+    }
+    return result;
   }
 
   private static void craftBucket(MyLinkedList[] bucket){

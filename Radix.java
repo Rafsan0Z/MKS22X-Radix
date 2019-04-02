@@ -8,10 +8,13 @@ public class Radix{
     int place = 0;
     while(count != 0){
       fillBucket(data,bucket,place);
+      System.out.println(toStringBucket(bucket) + "filled");
       concentrate(bucket);
-      System.out.println(toStringBucket(bucket));
+      System.out.println(toStringBucket(bucket) + "concen");
       takeWater(data,bucket);
-      System.out.println(toStringBucket(bucket));
+      System.out.println(toStringBucket(bucket) + "taken");
+      clearBucket(0,bucket);
+      System.out.println(toStringBucket(bucket) + "cleared");
       place++;
       count--;
     }
@@ -33,7 +36,7 @@ public class Radix{
     for(int i = 0; i < bucket[0].size(); i++){
       data[i] = bucket[0].get(i);
     }
-    clearBucket(bucket);
+    clearBucket(1,bucket);
   }
 
   private static void concentrate(MyLinkedList[] bucket){
@@ -73,8 +76,8 @@ public class Radix{
     }
   }
 
-  private static void clearBucket(MyLinkedList[] bucket){
-    for(int i = 1; i < 10; i++){
+  private static void clearBucket(int point, MyLinkedList[] bucket){
+    for(int i = point; i < 10; i++){
       bucket[i].clear();
     }
   }

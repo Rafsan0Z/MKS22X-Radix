@@ -8,15 +8,14 @@ public class Radix{
     int place = 0;
     while(count != 0){
       fillBucket(data,bucket,place);
-      System.out.println(toStringBucket(bucket) + "filled");
-      concentrate(bucket);
-      System.out.println(toStringBucket(bucket) + "concen");
+      System.out.println(count);
       takeWater(data,bucket);
-      clearBucket(0,bucket);
       place++;
       count--;
     }
-    takeWater(data,bucket);
+    lastfill(data,bucket);
+    System.out.println(toStringBucket(bucket));
+    lastBucket(data,bucket);
   }
 
   public static String printArray(int[] ary) {
@@ -30,12 +29,29 @@ public class Radix{
   return result + "]";
   }
 
-  public static void takeWater(int[] data, MyLinkedList[] bucket){
-    for(int i = 0; i < bucket[0].size(); i++){
-      data[i] = bucket[0].get(i);             // Improve this too and then clearBucket will be removed
+  private static void lastfill(int[] data, MyLinkedList[] bucket){
+    for(int i = 0; i < data.length; i++){
+      if(data[i] >= 0){bucket[0].add(data[i]);}
+      else{bucket[0].add(0,data[i]);}
     }
-    clearBucket(1,bucket);
   }
+
+  private static void lastBucket(int[] data, MyLinkedList[] bucket){
+    for(int i = 0; i < data.length; i++){
+      data[i] = bucket[0].get(i);
+    }
+  }
+
+  public static void takeWater(int[] data, MyLinkedList[] bucket){
+    int counter = 0;
+    for(int i = 0; i < 10; i++){
+      for(int j = 0; j < bucket[i].size(); j++){
+        data[counter] = bucket[i].get(j);
+        counter++;
+      }
+    }
+    clearBucket(0,bucket);
+}
 
   private static void concentrate(MyLinkedList[] bucket){
     for(int i = 1; i < 10; i++){
@@ -84,18 +100,7 @@ public class Radix{
   private static void fillBucket(int[] data, MyLinkedList[] bucket, int place){
     for(int i = 0; i < data.length; i++){
       int digit = Math.abs(getDigit(data,i,place));
-      if(data[i] >= 0 || bucket[digit].size() <= 1){
       bucket[digit].add(data[i]);
-    }
-    else{
-      int previous = bucket[digit].getNode().prev();
-      if(previous < data[i]){
-        bucket[digit].add(1,data[i]);
-      }
-      else{
-      bucket[digit].add(0,data[i]);
-    }
-    }
   }
   }
 
@@ -123,7 +128,7 @@ public class Radix{
   }
 
   public static void main(String args[]){
-    int[] test = new int[]{10,11,-645,12,13,14,7557,-291,15,16,17,18,19,20,32,54,65,23,45,76,87,23,98,12,47,-61,29,80,4, 455, 21, 34};
+    int[] test = new int[]{10,11,-645,12,13,14,-7557,-291,15,16,17,18,19,20,32,54,65,23,45,76,87,23,98,12,47,-61,29,80,4, 455, 21, 34};
     MyLinkedList[] bucket = new MyLinkedList[10];
     radixsort(test);
     System.out.println(printArray(test));

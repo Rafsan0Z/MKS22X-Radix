@@ -22,6 +22,16 @@ public class Radix{
     craftBucket(bucket);
   }
 
+  private static void concentrate(MyLinkedList[] bucket){
+    for(int i = 1; i < 10; i++){
+      for(int j = 0; j < bucket[i].size(); j++){
+        int num = bucket[i].get(j);
+        if(num >= 0){bucket[0].add(num);}
+        else{bucket[0].add(0,num);}
+      }
+    }
+  }
+
   public static String toStringBucket(MyLinkedList[] bucket){
     String result = "";
     int max = 0;
@@ -93,6 +103,7 @@ public class Radix{
     MyLinkedList[] bucket = new MyLinkedList[10];
     craftBucket(bucket);
     fillBucket(test,bucket,0);
+    concentrate(bucket);
     System.out.println(toStringBucket(bucket));
   }
 

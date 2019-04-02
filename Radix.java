@@ -22,7 +22,7 @@ public class Radix{
     craftBucket(bucket);
   }
 
-  public static String toStringBucket(int[] data, MyLinkedList[] bucket){
+  public static String toStringBucket(MyLinkedList[] bucket){
     String result = "";
     int max = 0;
     for(int i = 0; i < 10; i++){
@@ -33,7 +33,7 @@ public class Radix{
       for(int j = 0; j < 10; j++){
         try{
         result += bucket[j].get(i) + "  ";
-      }catch(NoSuchElementException e){
+      }catch(IndexOutOfBoundsException e){
         result += "__  ";
       }
       }
@@ -58,11 +58,11 @@ public class Radix{
       bucket[digit].add(0,data[i]);
     }
   }
-    for(int i = 1; i < 10; i++){
+    /*for(int i = 1; i < 10; i++){
       for(int j = 0; j < bucket[i].size(); j++){
         bucket[0].add(bucket[i].get(j));
       }
-    }
+    }*/
   }
 
   private static int biggest(int[] data){
@@ -90,6 +90,10 @@ public class Radix{
 
   public static void main(String args[]){
     int[] test = new int[]{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
+    MyLinkedList[] bucket = new MyLinkedList[10];
+    craftBucket(bucket);
+    fillBucket(test,bucket,0);
+    System.out.println(toStringBucket(bucket));
   }
 
 }

@@ -159,6 +159,19 @@ public class MyLinkedList{
     return index.getData();
   }
 
+  public Integer removeLast(){
+    Node index = start;
+    if(size == 1){
+      int result = index.getData();
+      clear();
+      return result;
+    }
+    while(index.next() != null){
+      index = index.next();
+    }
+    return index.getData();
+  }
+
   public boolean remove(Integer value){
     boolean result = false; // setting result as false
     if(contains(value)) {

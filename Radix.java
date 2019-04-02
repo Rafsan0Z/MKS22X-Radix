@@ -29,7 +29,8 @@ public class Radix{
   }
 
   public static void takeWater(int[] data, MyLinkedList[] bucket){
-    for(int i = 0; i < bucket[0].size(); i++){
+    System.out.println(bucket[0].size() + " " + data.length);
+    for(int i = 0; i < bucket[0].size() - 1; i++){
       data[i] = bucket[0].get(i);
     }
     craftBucket(bucket);
@@ -111,7 +112,7 @@ public class Radix{
     int[] test = new int[]{10,11,12,13,14,15,16,17,18,19,20,32,54,65,23,45,76,87,23,98,12,47,-61,29,80,44};
     MyLinkedList[] bucket = new MyLinkedList[10];
     radixsort(test);
-    System.out.println(toStringBucket(bucket));
+    System.out.println(printArray(test));
   }
 
 }

@@ -8,6 +8,7 @@ public class Radix{
     int place = 0;
     while(count != 0){
       fillBucket(data,bucket,place);
+      concentrate(bucket);
       takeWater(data,bucket);
       place++;
       count--;

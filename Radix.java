@@ -115,7 +115,7 @@ public class Radix{
   }
 
   public static void main(String args[]){
-    int[] test = new int[]{10,11,12,13,14,15,16,17,18,19,20,32,54,65,23,45,76,87,23,98,12,47,-61,29,80,44};
+    int[] test = new int[]{10,11,12,13,14,15,16,17,18,19,20,32,54,65,23,45,76,87,23,98,12,47,-61,29,80,4, 455, 21, 34};
     MyLinkedList[] bucket = new MyLinkedList[10];
     radixsort(test);
     System.out.println(printArray(test));

@@ -16,6 +16,17 @@ public class Radix{
     takeWater(data,bucket);
   }
 
+  public static String printArray(int[] ary) {
+  String result = "[";
+  for (int i = 0; i < ary.length ; i++) {
+  result += " " + ary[i];
+  if (i != ary.length - 1) {
+    result += ",";
+  }
+  }
+  return result + "]";
+  }
+
   public static void takeWater(int[] data, MyLinkedList[] bucket){
     for(int i = 0; i < bucket[0].size(); i++){
       data[i] = bucket[0].get(i);

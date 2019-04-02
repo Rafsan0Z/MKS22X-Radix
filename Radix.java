@@ -8,7 +8,9 @@ public class Radix{
     int place = 0;
     while(count != 0){
       fillBucket(data,bucket,place);
+      System.out.println(toStringBucket(bucket) + "filled");
       concentrate(bucket);
+      System.out.println(toStringBucket(bucket) + "concen");
       takeWater(data,bucket);
       clearBucket(0,bucket);
       place++;
@@ -82,11 +84,17 @@ public class Radix{
   private static void fillBucket(int[] data, MyLinkedList[] bucket, int place){
     for(int i = 0; i < data.length; i++){
       int digit = Math.abs(getDigit(data,i,place));
-      if(data[i] >= 0){
+      if(data[i] >= 0 || bucket[digit].size() <= 1){
       bucket[digit].add(data[i]);
     }
     else{
+      int previous = bucket[digit].getNode().prev();
+      if(previous < data[i]){
+        bucket[digit].add(1,data[i]);
+      }
+      else{
       bucket[digit].add(0,data[i]);
+    }
     }
   }
   }
@@ -115,7 +123,7 @@ public class Radix{
   }
 
   public static void main(String args[]){
-    int[] test = new int[]{10,11,12,13,14,7557,-291,-645,15,16,17,18,19,20,32,54,65,23,45,76,87,23,98,12,47,-61,29,80,4, 455, 21, 34};
+    int[] test = new int[]{10,11,-645,12,13,14,7557,-291,15,16,17,18,19,20,32,54,65,23,45,76,87,23,98,12,47,-61,29,80,4, 455, 21, 34};
     MyLinkedList[] bucket = new MyLinkedList[10];
     radixsort(test);
     System.out.println(printArray(test));

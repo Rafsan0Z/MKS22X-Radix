@@ -82,6 +82,7 @@ public class MyLinkedList{
   }
 
   public void add(int index, Integer value){
+    if(size == 0){add(value);}
     if(index < 0 || index >= size){
       throw new IndexOutOfBoundsException("Incorrect Index!");
     }

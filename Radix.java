@@ -61,7 +61,7 @@ public class Radix{
 
   private static void fillBucket(int[] data, MyLinkedList[] bucket, int place){
     for(int i = 0; i < data.length; i++){
-      int digit = getDigit(data,i,place);
+      int digit = Math.abs(getDigit(data,i,place));
       if(data[i] >= 0){
       bucket[digit].add(data[i]);
     }
@@ -100,7 +100,7 @@ public class Radix{
   }
 
   public static void main(String args[]){
-    int[] test = new int[]{10,11,12,13,14,15,16,17,18,19,20,32,54,65,23,45,76,87,23,98,12,47,61,29,80,44};
+    int[] test = new int[]{10,11,12,13,14,15,16,17,18,19,20,32,54,65,23,45,76,87,23,98,12,47,-61,29,80,44};
     MyLinkedList[] bucket = new MyLinkedList[10];
     craftBucket(bucket);
     fillBucket(test,bucket,0);

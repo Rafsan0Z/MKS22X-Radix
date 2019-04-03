@@ -8,9 +8,7 @@ public class Radix{
     int place = 0;
     while(count != 0){
       fillBucket(data,bucket,place);
-      System.out.println(toStringBucket(bucket));
       takeWater(data,bucket);
-      System.out.println(toStringBucket(bucket));
       place++;
       count--;
     }
@@ -21,7 +19,7 @@ public class Radix{
   public static void Radixsort(int[] data){
     MyLinkedList[] bucket = new MyLinkedList[10];
     craftBucket(bucket);
-    int count = biggest(data);
+    int count = biggest(data) - 1;
     fillBucket(data,bucket,0);
     int place = 1;
     while(count != 0){
@@ -153,13 +151,14 @@ public class Radix{
       num = num / 10;
       place--;
     }
+    //if(place > 0){num = num / (10*place);}
     return num % 10;
   }
 
   public static void main(String args[]){
     int[] test = new int[]{10,20,30,40,50,11,21,31,41};
     MyLinkedList[] bucket = new MyLinkedList[10];
-    radixsort(test);
+    Radixsort(test);
     System.out.println(printArray(test));
   }
 

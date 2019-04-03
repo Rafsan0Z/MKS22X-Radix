@@ -16,6 +16,10 @@ public class Radix{
     lastBucket(data,bucket);
   }
 
+  public static void Radixsort(int[] data){
+    
+  }
+
   public static String printArray(int[] ary) {
   String result = "[";
   for (int i = 0; i < ary.length ; i++) {
@@ -36,25 +40,25 @@ public class Radix{
 
   private static void lastBucket(int[] data, MyLinkedList[] bucket){
     for(int i = 0; i < data.length; i++){
-      data[i] = bucket[0].get(i);
+      data[i] = bucket[0].removeFront();
     }
   }
 
   public static void takeWater(int[] data, MyLinkedList[] bucket){
     int counter = 0;
     for(int i = 0; i < 10; i++){
-      for(int j = 0; j < bucket[i].size(); j++){
-        data[counter] = bucket[i].get(j);
+      int num = bucket[i].size();
+      for(int j = 0; j < num; j++){
+        data[counter] = bucket[i].removeFront();
         counter++;
       }
     }
-    clearBucket(0,bucket);
 }
 
   private static void concentrate(MyLinkedList[] bucket){
     for(int i = 1; i < 10; i++){
       for(int j = 0; j < bucket[i].size(); j++){
-        int num = bucket[i].get(j);
+        int num = bucket[i].removeLast();
         if(num >= 0){bucket[0].add(num);}    // Finish remove and improve this area, then clearBucket becomes irrelivent
         else{bucket[0].add(0,num);}
       }

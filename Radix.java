@@ -152,7 +152,7 @@ public class Radix{
   }
 
   public static void main(String args[]){
-    int[] test = new int[]{4,5,7,8,9,2,1};
+    int[] test = new int[]{10,20,30,40,50,11,21,31,41,12,22,32,42};
     MyLinkedList[] bucket = new MyLinkedList[10];
     radixsort(test);
     System.out.println(printArray(test));

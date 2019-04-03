@@ -160,15 +160,17 @@ public class MyLinkedList{
   }
 
   public Integer removeLast(){
-    Node index = start;
+    Node index = end;
     if(size == 1){
       int result = index.getData();
       clear();
       return result;
     }
-    while(index.next() != null){
-      index = index.next();
-    }
+    Node pivot = end.prev();
+    end = pivot;
+    pivot.setNext(null);
+    index.setPrev(null);
+    size--;
     return index.getData();
   }
 
@@ -209,8 +211,13 @@ public class MyLinkedList{
 
   public static void main(String args[]){
     MyLinkedList test = new MyLinkedList();
-    test.add(1);
-    test.add(2);
+    for(int i = 0; i < 21; i++){
+      test.add(i);
+    }
+    System.out.println(test);
+    test.removeFront();
+    System.out.println(test);
+    test.removeLast();
     System.out.println(test);
   }
 }

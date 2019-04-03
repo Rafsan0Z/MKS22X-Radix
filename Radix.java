@@ -21,9 +21,11 @@ public class Radix{
     craftBucket(bucket);
     int count = biggest(data) - 1;
     fillBucket(data,bucket,0);
+    System.out.println(toStringBucket(bucket));
     int place = 1;
     while(count != 0){
       substitute(bucket,place);
+      System.out.println(toStringBucket(bucket));
       place++;
       count--;
     }
@@ -35,13 +37,14 @@ public class Radix{
       for(int j = 0; j < num; j++){
         int n = bucket[i].removeFront();
         int digit = getDigit(n,place);
+        System.out.println(n + ", " + digit);
         bucket[digit].add(n);
       }
     }
   }
 
   private static int getDigit(int num, int place){
-    if(place > 0){num = num / (10*(place+1));}
+    if(place > 0){num = num / (10*place);}
     return num % 10;
   }
 
@@ -156,7 +159,7 @@ public class Radix{
   }
 
   public static void main(String args[]){
-    int[] test = new int[]{10,20,30,40,50,11,21,31,41};
+    int[] test = new int[]{10,20,30,40,50,11,21,31,41,12,14,52,34,98};
     MyLinkedList[] bucket = new MyLinkedList[10];
     Radixsort(test);
     System.out.println(printArray(test));

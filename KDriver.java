@@ -5,9 +5,9 @@ public class KDriver{
   public static void main(String[]args){
     Random rn = new Random();
     System.out.println("Size\t\tMax Value\tquick/builtin ratio ");
-    int[]MAX_LIST = {5,10,50,100,1000};
+    int[]MAX_LIST = {25,20,15,10,5};
     for(int MAX : MAX_LIST){
-      for(int size = 100000; size <= 1600000; size*=2){
+      for(int size = 100000; size <= 3200000; size*=2){
         long qtime=0;
         long btime=0;
         //average of 5 sorts.

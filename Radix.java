@@ -149,7 +149,10 @@ public class Radix{
 
   private static int getDigit(int[] data, int index, int place){
     int num = data[index];
-    if(place > 0){num = num / (10*(place+1));}
+    while(place != 0){
+      num = num / 10;
+      place--;
+    }
     return num % 10;
   }
 

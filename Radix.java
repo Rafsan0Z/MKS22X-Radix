@@ -134,12 +134,12 @@ public class Radix{
 
   private static int getDigit(int[] data, int index, int place){
     int num = data[index];
-    if(place > 0){num = num / (10*(point+1));}
+    if(place > 0){num = num / (10*(place+1));}
     return num % 10;
   }
 
   public static void main(String args[]){
-    int[] test = new int[]{10,11,-645,12,13,14,-7557,-291,15,16,17,18,19,20,32,54,65332,23,45,76,87,23,98,12,47,-61,29,80,4, 455, 21, 34};
+    int[] test = new int[]{10,11,-645,12,13,14,-7557,-291,15,16,17,18,19,20,32,54,65332,23,45,76,87,23,98,12,47,-61,29,80, 455, 21, 34};
     MyLinkedList[] bucket = new MyLinkedList[10];
     radixsort(test);
     System.out.println(printArray(test));

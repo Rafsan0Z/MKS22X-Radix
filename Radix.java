@@ -28,8 +28,13 @@ public class Radix{
     }
   }
 
-  private static void substitute(MyLinkedList[] bucket){
-
+  private static void substitute(MyLinkedList[] bucket, int place){
+    for(int i = 0; i < 10; i++){
+      int num = bucket[i].size();
+      for(int j = 0; j < num; j++){
+        
+      }
+    }
   }
 
   public static String printArray(int[] ary) {

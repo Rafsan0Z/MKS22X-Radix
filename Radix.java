@@ -12,8 +12,8 @@ public class Radix{
       place++;
       count--;
     }
-    //lastfill(data,bucket);
-    //lastBucket(data,bucket);
+    lastfill(data,bucket);
+    lastBucket(data,bucket);
   }
 
   public static void Radixsort(int[] data){

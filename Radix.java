@@ -32,9 +32,13 @@ public class Radix{
     for(int i = 0; i < 10; i++){
       int num = bucket[i].size();
       for(int j = 0; j < num; j++){
-        
+
       }
     }
+  }
+
+  private static int getDigit(int num, int place){
+    
   }
 
   public static String printArray(int[] ary) {

@@ -23,7 +23,8 @@ public class Radix{
     fillBucket(data,bucket,0);
     int place = 1;
     while(count != 0){
-      substitute(bucket);
+      substitute(bucket,place);
+      place++;
       count--;
     }
   }
@@ -151,7 +152,7 @@ public class Radix{
   }
 
   public static void main(String args[]){
-    int[] test = new int[]{10,11,-645,12,13,14,-7557,-291,15,16,17,18,19,20,32,54,65332,23,45,76,87,23,98,12,47,-61,29,80, 455, 21, 34};
+    int[] test = new int[]{4,5,7,8,9,2,1};
     MyLinkedList[] bucket = new MyLinkedList[10];
     radixsort(test);
     System.out.println(printArray(test));

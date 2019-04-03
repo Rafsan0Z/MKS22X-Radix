@@ -32,13 +32,16 @@ public class Radix{
     for(int i = 0; i < 10; i++){
       int num = bucket[i].size();
       for(int j = 0; j < num; j++){
-
+        int n = bucket[i].removeFront();
+        int digit = getDigit(n,place);
+        bucket[digit].add(n);
       }
     }
   }
 
   private static int getDigit(int num, int place){
-    
+    if(place > 0){num = num / (10*(place+1));}
+    return num % 10;
   }
 
   public static String printArray(int[] ary) {

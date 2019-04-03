@@ -159,9 +159,9 @@ public class Radix{
   }
 
   public static void main(String args[]){
-    int[] test = new int[]{10,20,30,40,50,11,21,31,41,12,14,52,34,98};
+    int[] test = new int[]{-50,-40,-30,-20,-10 , 1};
     MyLinkedList[] bucket = new MyLinkedList[10];
-    Radixsort(test);
+    radixsort(test);
     System.out.println(printArray(test));
   }
 

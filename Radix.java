@@ -8,12 +8,14 @@ public class Radix{
     int place = 0;
     while(count != 0){
       fillBucket(data,bucket,place);
+      System.out.println(toStringBucket(bucket));
       takeWater(data,bucket);
+      System.out.println(toStringBucket(bucket));
       place++;
       count--;
     }
-    lastfill(data,bucket);
-    lastBucket(data,bucket);
+    //lastfill(data,bucket);
+    //lastBucket(data,bucket);
   }
 
   public static void Radixsort(int[] data){
@@ -152,7 +154,7 @@ public class Radix{
   }
 
   public static void main(String args[]){
-    int[] test = new int[]{10,20,30,40,50,11,21,31,41,12,22,32,42};
+    int[] test = new int[]{10,20,30,40,50,11,21,31,41};
     MyLinkedList[] bucket = new MyLinkedList[10];
     radixsort(test);
     System.out.println(printArray(test));

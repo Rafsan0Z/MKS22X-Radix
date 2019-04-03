@@ -17,7 +17,19 @@ public class Radix{
   }
 
   public static void Radixsort(int[] data){
-    
+    MyLinkedList[] bucket = new MyLinkedList[10];
+    craftBucket(bucket);
+    int count = biggest(data);
+    fillBucket(data,bucket,0);
+    int place = 1;
+    while(count != 0){
+      substitute(bucket);
+      count--;
+    }
+  }
+
+  private static void substitute(MyLinkedList[] bucket){
+
   }
 
   public static String printArray(int[] ary) {

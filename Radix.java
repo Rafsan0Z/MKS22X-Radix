@@ -25,14 +25,22 @@ public class Radix{
     int place = 0;
     while(count != 0){
       substitute(bucket,storage,place);
+      takeWater(storage,bucket);
       place++;
       count--;
     }
+    lastcopy(data,storage);
   }
 
   private static void initialize(MyLinkedList storage, int[] data){
     for(int i = 0; i < data.length; i++){
       storage.addEnd(data[i]);
+    }
+  }
+
+  private static void lastcopy(int[] data, MyLinkedList storage){
+    for(int i = 0; i < data.length; i++){
+      data[i] = storage.removeFront();
     }
   }
 
@@ -43,6 +51,10 @@ public class Radix{
         if(num >= 0){bucket[getDigit(num,place)].addEnd(num);}
         else{bucket[getDigit(num,place)].addFront(num);}
       }
+  }
+
+  private static void takeWater(MyLinkedList stroage, MyLinkedList[] bucket){
+
   }
 
   private static int getDigit(int num, int place){

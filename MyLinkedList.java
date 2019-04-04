@@ -111,6 +111,14 @@ public class MyLinkedList{
     return now;
   }
 
+  public void addFront(value){
+    add(0,value);
+  }
+
+  public void addEnd(value){
+    add(size-1,value);
+  }
+
   public Integer remove(int index){
     if(index < 0 || index > size){
       throw new IndexOutOfBoundsException("Incorrect Index!");

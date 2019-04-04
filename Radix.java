@@ -18,16 +18,22 @@ public class Radix{
 
   public static void Radixsort(int[] data){
     MyLinkedList[] bucket = new MyLinkedList[10];
+    MyLinkedList storage = new MyLinkedList();
     craftBucket(bucket);
-    int count = biggest(data) - 1;
-    fillBucket(data,bucket,0);
-    System.out.println(toStringBucket(bucket));
-    int place = 1;
+    initialize(storage,data);
+    int count = biggest(data);
+    int place = 0;
     while(count != 0){
       substitute(bucket,place);
       System.out.println(toStringBucket(bucket));
       place++;
       count--;
+    }
+  }
+
+  private static void initialize(MyLinkedList storage, int[] data){
+    for(int i = 0; i < data.length; i++){
+      storage.addEnd(data[i]);
     }
   }
 

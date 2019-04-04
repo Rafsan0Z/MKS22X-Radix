@@ -24,8 +24,7 @@ public class Radix{
     int count = biggest(data);
     int place = 0;
     while(count != 0){
-      substitute(bucket,place);
-      System.out.println(toStringBucket(bucket));
+      substitute(bucket,storage,place);
       place++;
       count--;
     }
@@ -37,16 +36,13 @@ public class Radix{
     }
   }
 
-  private static void substitute(MyLinkedList[] bucket, int place){
-    for(int i = 0; i < 10; i++){
-      int num = bucket[i].size();
-      for(int j = 0; j < num; j++){
-        int n = bucket[i].removeFront();
-        int digit = getDigit(n,place);
-        System.out.println(n + ", " + digit);
-        bucket[digit].add(n);
+  private static void substitute(MyLinkedList[] bucket, MyLinkedList storage, int place){
+      int size = storage.size();
+      while(size != 0){
+        int num = storage.removeLast();
+        if(num >= 0){bucket[getDigit(num,place)].addEnd(num);}
+        else{bucket[getDigit(num,place)].addFront(num);}
       }
-    }
   }
 
   private static int getDigit(int num, int place){

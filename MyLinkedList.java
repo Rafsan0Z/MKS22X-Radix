@@ -1,6 +1,6 @@
 public class MyLinkedList<E>{
   private int size;
-  private Node start,end;
+  private Node<E> start,end;
 
   public MyLinkedList(){
     size = 0;
@@ -124,7 +124,7 @@ public class MyLinkedList<E>{
       throw new IndexOutOfBoundsException("Incorrect Index!");
     }
     Node<E> temp = start; // create temporary Node
-    E result = 0; // set result to 0
+    E result = null; // set result to 0
     if(index == 0){
       result = start.getData();
       start = start.next();
@@ -208,7 +208,7 @@ public class MyLinkedList<E>{
 
   public String toStringReverse(){
     String result = "[";
-    Node temp = end;
+    Node<E> temp = end;
     while(temp != null){
       if(temp.prev() != null) {result += temp.getData() + ", ";}
       else{result += temp.getData();}
@@ -218,7 +218,7 @@ public class MyLinkedList<E>{
   }
 
   public static void main(String args[]){
-    MyLinkedList test = new MyLinkedList();
+    MyLinkedList<Integer> test = new MyLinkedList();
     for(int i = 0; i < 21; i++){
       test.add(i);
     }

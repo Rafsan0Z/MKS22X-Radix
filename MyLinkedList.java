@@ -191,7 +191,7 @@ public class MyLinkedList<E>{
     return result; // returns the result
   }
 
-  public void extend(MyLinkedList extension){
+  public void extend(MyLinkedList<E> extension){
     int len1 = size();
     int len2 = extension.size();
     if(len2 == 0) {extension.end = end;}
@@ -218,6 +218,7 @@ public class MyLinkedList<E>{
   }
 
   public static void main(String args[]){
+    @SuppressWarnings("unchecked")
     MyLinkedList<Integer> test = new MyLinkedList();
     for(int i = 0; i < 21; i++){
       test.add(i);

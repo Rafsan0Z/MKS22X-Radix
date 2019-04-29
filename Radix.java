@@ -2,7 +2,7 @@ import java.util.*;
 public class Radix{
 
   public static void radixsort(int[] data){
-    MyLinkedList[] bucket = new MyLinkedList[10];
+    MyLinkedList<Integer>[] bucket = new MyLinkedList[10];
     craftBucket(bucket);
     int count = biggest(data);
     int place = 0;
@@ -17,8 +17,8 @@ public class Radix{
   }
 
   public static void Radixsort(int[] data){
-    MyLinkedList[] bucket = new MyLinkedList[10];
-    MyLinkedList storage = new MyLinkedList();
+    MyLinkedList<Integer>[] bucket = new MyLinkedList[10];
+    MyLinkedList<Integer> storage = new MyLinkedList();
     craftBucket(bucket);
     initialize(storage,data);
     int count = biggest(data);
@@ -32,19 +32,19 @@ public class Radix{
     lastcopy(data,storage);
   }
 
-  private static void initialize(MyLinkedList storage, int[] data){
+  private static void initialize(MyLinkedList<Integer> storage, int[] data){
     for(int i = 0; i < data.length; i++){
       storage.addEnd(data[i]);
     }
   }
 
-  private static void lastcopy(int[] data, MyLinkedList storage){
+  private static void lastcopy(int[] data, MyLinkedList<Integer> storage){
     for(int i = 0; i < data.length; i++){
       data[i] = storage.removeFront();
     }
   }
 
-  private static void substitute(MyLinkedList[] bucket, MyLinkedList storage, int place){
+  private static void substitute(MyLinkedList<Integer>[] bucket, MyLinkedList<Integer> storage, int place){
       int size = storage.size();
       while(size != 0){
         int num = storage.removeLast();
@@ -53,7 +53,7 @@ public class Radix{
       }
   }
 
-  private static void takeWater(MyLinkedList stroage, MyLinkedList[] bucket){
+  private static void takeWater(MyLinkedList<Integer> stroage, MyLinkedList<Integer>[] bucket){
 
   }
 
@@ -73,20 +73,20 @@ public class Radix{
   return result + "]";
   }
 
-  private static void lastfill(int[] data, MyLinkedList[] bucket){
+  private static void lastfill(int[] data, MyLinkedList<Integer>[] bucket){
     for(int i = 0; i < data.length; i++){
       if(data[i] >= 0){bucket[0].add(data[i]);}
       else{bucket[0].add(0,data[i]);}
     }
   }
 
-  private static void lastBucket(int[] data, MyLinkedList[] bucket){
+  private static void lastBucket(int[] data, MyLinkedList<Integer>[] bucket){
     for(int i = 0; i < data.length; i++){
       data[i] = bucket[0].removeFront();
     }
   }
 
-  public static void takeWater(int[] data, MyLinkedList[] bucket){
+  public static void takeWater(int[] data, MyLinkedList<Integer>[] bucket){
     int counter = 0;
     for(int i = 0; i < 10; i++){
       int num = bucket[i].size();
@@ -97,7 +97,7 @@ public class Radix{
     }
 }
 
-  private static void concentrate(MyLinkedList[] bucket){
+  private static void concentrate(MyLinkedList<Integer>[] bucket){
     for(int i = 1; i < 10; i++){
       for(int j = 0; j < bucket[i].size(); j++){
         int num = bucket[i].removeLast();
@@ -107,7 +107,7 @@ public class Radix{
     }
   }
 
-  public static String toStringBucket(MyLinkedList[] bucket){
+  public static String toStringBucket(MyLinkedList<Integer>[] bucket){
     String result = "";
     int max = 0;
     for(int i = 0; i < 10; i++){
@@ -129,19 +129,19 @@ public class Radix{
     return result;
   }
 
-  private static void craftBucket(MyLinkedList[] bucket){
+  private static void craftBucket(MyLinkedList<Integer>[] bucket){
     for(int i = 0; i < 10; i++){
       bucket[i] = new MyLinkedList();
     }
   }
 
-  private static void clearBucket(int point, MyLinkedList[] bucket){
+  private static void clearBucket(int point, MyLinkedList<Integer>[] bucket){
     for(int i = point; i < 10; i++){
       bucket[i].clear();
     }
   }
 
-  private static void fillBucket(int[] data, MyLinkedList[] bucket, int place){
+  private static void fillBucket(int[] data, MyLinkedList<Integer>[] bucket, int place){
     for(int i = 0; i < data.length; i++){
       int digit = Math.abs(getDigit(data,i,place));
       bucket[digit].add(data[i]);
@@ -174,7 +174,7 @@ public class Radix{
 
   public static void main(String args[]){
     int[] test = new int[]{-50,-40,-30,-20,-10 , 1};
-    MyLinkedList[] bucket = new MyLinkedList[10];
+    MyLinkedList<Integer>[] bucket = new MyLinkedList[10];
     radixsort(test);
     System.out.println(printArray(test));
   }

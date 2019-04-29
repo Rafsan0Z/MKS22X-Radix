@@ -1,3 +1,4 @@
+@SuppressWarnings("unchecked")
 public class MyLinkedList<E>{
   private int size;
   private Node<E> start,end;

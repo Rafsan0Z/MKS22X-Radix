@@ -1,3 +1,4 @@
+@SuppressWarnings("unchecked")
 public class Node<E>{
   private E data;
   private Node next,prev;

@@ -1,4 +1,4 @@
-public class MyLinkedList{
+public class MyLinkedList<E>{
   private int size;
   private Node start,end;
 
@@ -18,7 +18,7 @@ public class MyLinkedList{
     return size;
   }
 
-  public boolean add(int value){ // Not complete
+  public boolean add(E value){ // Not complete
     size++;
     Node addend = new Node(null,end,value);
     if(end != null){
@@ -32,7 +32,7 @@ public class MyLinkedList{
     return true;
   }
 
-  public boolean contains(Integer value){
+  public boolean contains(E value){
     Node temp = start;
     int i = 0;
     while(temp.next() != null){
@@ -55,7 +55,7 @@ public class MyLinkedList{
     return result + "]";
 }
 
-  public int get(int index){
+  public E get(int index){
     if(index < 0 || index >= size){
       throw new IndexOutOfBoundsException("Incorrect Index!");
     }
@@ -68,7 +68,7 @@ public class MyLinkedList{
     return temp.getData();
   }
 
-  public int indexOf(Integer value){
+  public int indexOf(E value){
     Node temp = start;
     int i = 0;
     while(temp.next() != null){
@@ -81,7 +81,7 @@ public class MyLinkedList{
     return -1;
   }
 
-  public void add(int index, Integer value){
+  public void add(int index, E value){
     if(size == 0){
       add(value);
       //size++;
@@ -111,20 +111,20 @@ public class MyLinkedList{
     return now;
   }
 
-  public void addFront(value){
+  public void addFront(E value){
     add(0,value);
   }
 
-  public void addEnd(value){
+  public void addEnd(E value){
     add(size-1,value);
   }
 
-  public Integer remove(int index){
+  public E remove(int index){
     if(index < 0 || index > size){
       throw new IndexOutOfBoundsException("Incorrect Index!");
     }
     Node temp = start; // create temporary Node
-    Integer result = 0; // set result to 0
+    E result = 0; // set result to 0
     if(index == 0){
       result = start.getData();
       start = start.next();
@@ -152,10 +152,10 @@ public class MyLinkedList{
     return result;
   }
 
-  public Integer removeFront(){
+  public E removeFront(){
     Node index = start;
     if(size == 1){
-      int result = index.getData();
+      E result = index.getData();
       clear();
       return result;
     }
@@ -167,10 +167,10 @@ public class MyLinkedList{
     return index.getData();
   }
 
-  public Integer removeLast(){
+  public E removeLast(){
     Node index = end;
     if(size == 1){
-      int result = index.getData();
+      E result = index.getData();
       clear();
       return result;
     }
@@ -182,7 +182,7 @@ public class MyLinkedList{
     return index.getData();
   }
 
-  public boolean remove(Integer value){
+  public boolean remove(E value){
     boolean result = false; // setting result as false
     if(contains(value)) {
       remove(indexOf(value)); // Make sure that remove works!

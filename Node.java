@@ -2,17 +2,17 @@ public class Node<E>{
   private E data;
   private Node next,prev;
 
-  public Node(Node n, Node p, E d){
+  public Node(Node<E> n, Node<E> p, E d){
     data = d;
     next = n;
     prev = p;
   }
 
-  public Node next(){ // This get is for the Node
+  public Node<E> next(){ // This get is for the Node
     return next;
   }
 
-  public Node prev(){
+  public Node<E> prev(){
     return prev;
   }
 

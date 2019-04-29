@@ -20,7 +20,7 @@ public class MyLinkedList<E>{
 
   public boolean add(E value){ // Not complete
     size++;
-    Node addend = new Node(null,end,value);
+    Node<E> addend = new Node(null,end,value);
     if(end != null){
       end.setNext(addend);
       end = addend;
@@ -69,7 +69,7 @@ public class MyLinkedList<E>{
   }
 
   public int indexOf(E value){
-    Node temp = start;
+    Node<E> temp = start;
     int i = 0;
     while(temp.next() != null){
       temp = temp.next();
@@ -218,15 +218,5 @@ public class MyLinkedList<E>{
   }
 
   public static void main(String args[]){
-    @SuppressWarnings("unchecked")
-    MyLinkedList<Integer> test = new MyLinkedList();
-    for(int i = 0; i < 21; i++){
-      test.add(i);
-    }
-    System.out.println(test);
-    test.removeFront();
-    System.out.println(test);
-    test.removeLast();
-    System.out.println(test);
   }
 }

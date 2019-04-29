@@ -1,4 +1,4 @@
-public class Node{
+public class Node<E>{
   private E data;
   private Node next,prev;
 
@@ -28,7 +28,7 @@ public class Node{
     next = N;
   }
 
-  public E setData(int i){
+  public E setData(E i){
     E result = data;
     data = i;
     return result;

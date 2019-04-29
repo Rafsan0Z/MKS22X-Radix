@@ -1,23 +1,23 @@
 @SuppressWarnings("unchecked")
 public class MyLinkedList<E>{
   private int size;
-  private Node<E> start,end;
+  private Node start,end;
 //Node Class
-  public class Node<E>{
+  public class Node{
     private E data;
     private Node next,prev;
 
-    public Node(Node<E> n, Node<E> p, E d){
+    public Node(Node n, Node p, E d){
       data = d;
       next = n;
       prev = p;
     }
 
-    public Node<E> next(){ // This get is for the Node
+    public Node next(){ // This get is for the Node
       return next;
     }
 
-    public Node<E> prev(){
+    public Node prev(){
       return prev;
     }
 
@@ -63,7 +63,7 @@ public class MyLinkedList<E>{
 
   public boolean add(E value){ // Not complete
     size++;
-    Node<E> addend = new Node(null,end,value);
+    Node addend = new Node(null,end,value);
     if(end != null){
       end.setNext(addend);
       end = addend;
@@ -76,7 +76,7 @@ public class MyLinkedList<E>{
   }
 
   public boolean contains(E value){
-    Node<E> temp = start;
+    Node temp = start;
     int i = 0;
     while(temp.next() != null){
       temp = temp.next();
@@ -89,7 +89,7 @@ public class MyLinkedList<E>{
 
   public String toString(){ // turns the LinkedList into a String to be printed!
     String result = "[";
-    Node<E> temp = start;
+    Node temp = start;
     while(temp != null){
       if(temp.next() != null) {result += temp.getData() + ", ";}
       else{result += temp.getData();}
@@ -102,7 +102,7 @@ public class MyLinkedList<E>{
     if(index < 0 || index >= size){
       throw new IndexOutOfBoundsException("Incorrect Index!");
     }
-    Node<E> temp = start;
+    Node temp = start;
     int i = 0;
     while(i < index){
       temp = temp.next();
@@ -112,7 +112,7 @@ public class MyLinkedList<E>{
   }
 
   public int indexOf(E value){
-    Node<E> temp = start;
+    Node temp = start;
     int i = 0;
     while(temp.next() != null){
       temp = temp.next();
@@ -133,12 +133,12 @@ public class MyLinkedList<E>{
     if(index < 0 || index >= size){
       throw new IndexOutOfBoundsException("Incorrect Index!");
     }
-    Node<E> now = getNode(index);
+    Node now = getNode(index);
     size++;
     if(index == size - 1){
       add(value);
     }
-    Node<E> add = new Node(now,now.prev(),value);
+    Node add = new Node(now,now.prev(),value);
     now.setPrev(add);
     if(index == 0){start = add;}
     else{
@@ -146,8 +146,8 @@ public class MyLinkedList<E>{
     }
   }
 
-  private Node<E> getNode(int index){
-    Node<E> now = start;
+  private Node getNode(int index){
+    Node now = start;
     for(int i = 0; i < index; i++){
       now = now.next();
     }
@@ -166,7 +166,7 @@ public class MyLinkedList<E>{
     if(index < 0 || index > size){
       throw new IndexOutOfBoundsException("Incorrect Index!");
     }
-    Node<E> temp = start; // create temporary Node
+    Node temp = start; // create temporary Node
     E result = null; // set result to 0
     if(index == 0){
       result = start.getData();
@@ -179,14 +179,14 @@ public class MyLinkedList<E>{
       i++;
     }
     if(end != temp){
-      Node<E> previous = temp.prev();
-      Node<E> following = temp.next();
+      Node previous = temp.prev();
+      Node following = temp.next();
       previous.setNext(following);  // if temporary Node and end Node are differet, make create the previous and following Node and join them
       following.setPrev(previous);
       result = temp.getData();
     }
     else{
-      Node<E> previous = temp.prev();
+      Node previous = temp.prev();
       previous.setNext(null);
       end = previous;
       result = temp.getData();
@@ -196,13 +196,13 @@ public class MyLinkedList<E>{
   }
 
   public E removeFront(){
-    Node<E> index = start;
+    Node index = start;
     if(size == 1){
       E result = index.getData();
       clear();
       return result;
     }
-    Node<E> pivot = start.next();
+    Node pivot = start.next();
     start = pivot;
     pivot.setPrev(null);
     index.setNext(null);
@@ -211,13 +211,13 @@ public class MyLinkedList<E>{
   }
 
   public E removeLast(){
-    Node<E> index = end;
+    Node index = end;
     if(size == 1){
       E result = index.getData();
       clear();
       return result;
     }
-    Node<E> pivot = end.prev();
+    Node pivot = end.prev();
     end = pivot;
     pivot.setNext(null);
     index.setPrev(null);
@@ -251,7 +251,7 @@ public class MyLinkedList<E>{
 
   public String toStringReverse(){
     String result = "[";
-    Node<E> temp = end;
+    Node temp = end;
     while(temp != null){
       if(temp.prev() != null) {result += temp.getData() + ", ";}
       else{result += temp.getData();}

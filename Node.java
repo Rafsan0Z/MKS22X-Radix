@@ -1,8 +1,8 @@
 public class Node{
-  private int data;
+  private E data;
   private Node next,prev;
 
-  public Node(Node n, Node p, int d){
+  public Node(Node n, Node p, E d){
     data = d;
     next = n;
     prev = p;
@@ -16,7 +16,7 @@ public class Node{
     return prev;
   }
 
-  public int getData(){ // This get is for integer data
+  public E getData(){ // This get is for integer data
     return data;
   }
 
@@ -28,8 +28,8 @@ public class Node{
     next = N;
   }
 
-  public int setData(int i){
-    int result = data;
+  public E setData(int i){
+    E result = data;
     data = i;
     return result;
   }

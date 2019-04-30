@@ -1,7 +1,7 @@
 import java.util.*;
+@SuppressWarnings("unchecked")
 public class Radix{
 
-  @SuppressWarnings("unchecked")
   public static void radixsort(int[] data){
     MyLinkedList<Integer>[] bucket = new MyLinkedList[10];
     craftBucket(bucket);
